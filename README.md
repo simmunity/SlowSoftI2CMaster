@@ -1,6 +1,8 @@
 SlowSoftI2CMaster
 ================
 
+Modified version of the base SlowSoftI2CMaster to support ESP8266 with reliable, compatible, fast clock stretching.
+
 Another Software I2C library, very similar to SoftI2CMaster, allowing you to use any Arduino pins for SDA and SCL.  The difference to the SoftI2CMaster library is that it is entirely written in C++, so you can use it also on ARM boards, such as Zero and Due. And you can use any pin on the ATMega256. As is stipulated by the title, it is definitely slower. On an UNO it runs with roughly 40kHz, on an ARM board with around 70 kHz. 
 
 In principle, you could setup different I2C buses (as masters), but I do not see the point in it. In particular since you only could do I/O on one bus at a time.
