@@ -24,13 +24,12 @@
 
 #define I2C_READ 1
 #define I2C_WRITE 0
-#define DELAY 4 // usec delay
+#define DELAY 2 // usec delay
 #define BUFFER_LENGTH 32
 
 class SlowSoftI2CMaster {
  public:
   SlowSoftI2CMaster(uint8_t sda, uint8_t scl);
-  SlowSoftI2CMaster(uint8_t sda, uint8_t scl, bool internal_pullup);
   bool i2c_init(void);
   bool i2c_start(uint8_t addr);
   void i2c_start_wait(uint8_t addr);
@@ -41,11 +40,11 @@ class SlowSoftI2CMaster {
   bool error;
   
  private:
-  void setHigh(uint8_t pin);
-  void setLow(uint8_t pin);
+  bool ClockStretch(void);
   uint8_t _sda;
   uint8_t _scl;
-  bool _pullup;
+  uint8_t _sda_set;
+  uint8_t _scl_set;
 };
 
 #endif
